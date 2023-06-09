@@ -1,0 +1,42 @@
+#
+#
+# Inicio todos los módulos Hot-Standby
+00:00:11:200	hss1_start	1
+00:00:11:300	hss2_start	1
+00:00:11:500	hsc_start	1
+#
+#
+# Desconecto el servidor #1 (master) de la red
+00:01:00:200	eth_inhab	1
+#
+#
+# Reconecto el servidor #1 a la red
+00:02:00:100	eth_hab	 	1
+#
+#
+# Desconecto el servidor #2 (slave) de la red
+00:02:30:200	eth_inhab	2
+#
+#
+# Reconecto el servidor #2 a la red
+00:03:00:100	eth_hab	 	2
+#
+#
+# Desconecto al cliente, y le doy tiempo para que cambie
+# varias veces de destino de poleo. Luego desconecto el
+# servidor #2 (slave)
+00:03:30:200	eth_inhab	3
+00:04:05:200	eth_inhab	1
+00:04:10:100	eth_hab	 	3
+#
+#
+# Intento pasar el servidor #1 -offline- a slave
+# Lo rechaza ya que al estar en slave no se comunica con
+# ningún master.
+00:04:30:100	fo1_slave	1
+#
+#
+# Listo! apago todo
+00:05:00:000	hss1_stop	1
+00:05:00:000	hss2_stop	1
+00:05:00:000	hsc_stop	1

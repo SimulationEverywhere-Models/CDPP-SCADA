@@ -1,0 +1,23 @@
+#------------------------------------------------------
+# Modelo WORKSPACE-PDB
+#
+#
+# Mensajes: 
+#      TTV en pdb_in
+#      TTEV en pdb_out
+#      NR en nombre_logico
+#
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#
+# El modelo comienza a enviar una serie de pedidos en forma
+# ciclica, y en intervalos regulares de tiempo. Envio un 
+# cambio al nombre logico para observar los cambios
+00:00:15:000	nombre_logico	52
+
+
+

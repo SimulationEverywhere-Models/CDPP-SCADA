@@ -1,0 +1,46 @@
+#------------------------------------------------------
+# Modelo HSServer
+# Test 1: Nodo Primario
+#
+# Mensajes: 
+#      _ en start, stop, failover_master, failover_slave
+#      _ en start_drv, stop_drv
+#      0/1 en reload_pdb (0=DB_MASTER, 1=DB_SLAVE) 
+#      TTVOO en red_in
+#      TTEVDD en red_out
+#      NR en nombre_logico
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#      OO: origen
+#      DD: destino
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#
+00:00:01:000	start 1
+00:01:00:000	failover_slave	1
+#
+# Estando en slave, el modelo comienza a polear a la máquina master
+# y si pasa la cantidad maxima de reintentos fallidos, switchea
+# Antes de eso, le simulo una respuesta de la PDB del nodo secundario
+# diciendo TAG_STATUS=SEC_SLAVE.... debera switchear a master
+#
+# NOTA: conviene usar una gran cantidad de reintentos,
+#       o muy espaciados
+00:01:30:000	red_in		15822
+# Ahora le mando a una respuesta de la PDB donde TAG_STATUS=SEC_MASTER
+# Simulo tener dos master...
+00:02:00:000	red_in		15722
+# Aca aun sigue la maquina primaria como master...
+# El siguiente mensaje es ignorado
+00:03:00:000	failover_master	1
+# Envio algunas respuestas validas de poleo
+00:03:15:000	red_in	15822
+00:03:20:000	red_in	15822
+00:03:25:000	red_in	15822
+00:03:30:000	stop 1
+

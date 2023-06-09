@@ -1,0 +1,34 @@
+#------------------------------------------------------
+# Modelo WORKSPACE
+#
+#
+# Mensajes: 
+#      TTV en pdb_in
+#      TTVOO en red_in
+#      NR en nombre_logico
+#      TTEV en pdb_out
+#      TTEVDD en red_out
+#
+# donde
+#      OO: origen
+#      DD: destino
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#
+# El modelo comienza a enviar una serie de pedidos en forma
+# ciclica, y en intervalos regulares de tiempo. Envio un 
+# cambio al nombre logico para observar los cambios
+00:00:11:500	pdb_in	151
+00:00:12:500	pdb_in	151
+00:00:13:500	pdb_in	151
+00:00:14:500	pdb_in	151
+00:00:15:500	pdb_in	151
+00:00:16:500	pdb_in	151
+00:00:17:500	pdb_in	151
+00:00:25:000	nombre_logico	52
+
+
+

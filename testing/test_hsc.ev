@@ -1,0 +1,29 @@
+#------------------------------------------------------
+# Modelo HSClient
+#
+#
+# Mensajes:
+#      _ en start
+#      _ en stop
+#      TTVOO en red_in
+#      TTEVDD en red_out
+#      NR en nombre_logico
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor
+#      OO: origen
+#      DD: destino
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#
+00:00:01:000	start 1
+#
+# la PDB del nodo 2 (secundario del 5) envia la respuesta SEC_MASTER
+00:00:20:000	red_in	15722
+#
+# la PDB del nodo 1 (primario del 5) envia la respuesta PRI_MASTER
+00:00:30:000	red_in	15812
+00:01:12:000	red_in	15712
+00:01:50:000	stop 1
+

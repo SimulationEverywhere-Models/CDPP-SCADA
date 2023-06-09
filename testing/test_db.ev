@@ -1,0 +1,45 @@
+#------------------------------------------------------
+# Modelo Database
+#
+#
+# Mensajes: 
+#      TTEV en leer 
+#      0/1 en recargar 
+#      DDAAVV en drv_respuesta
+#      DDAA en drv_pedido
+#      TTV en registro_pedido
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      DD: dispositivo
+#      AA: direccion
+#      VV/V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                   5=PRI_MASTER, 6=PRI_SLAVE,
+#                   7=SEC_MASTER, 8=SEC_SLAVE)
+#
+00:01:01:000	leer	8100
+00:01:02:000	leer 	8200
+00:01:03:000	leer	8000
+00:01:04:000	leer	1500
+00:01:05:000	leer  1519
+#
+# un tag inexistente
+00:01:06:000	leer	3400
+#
+# leo el valor de un tag que escribí
+00:01:07:000	leer	1519
+#
+# pido que se cargue la DB_SLAVE y tiro un par de pedidos
+# que no tendran respuesta
+00:01:10:000	recargar 1
+00:01:10:200	leer	1500
+00:01:11:000	leer 	1500
+#
+# terminada la recarga, repito el test
+# Notar que ya no tengo el viejo valor del tag 15
+00:01:21:000	leer	8100
+00:01:22:000	leer 	8200
+00:01:23:000	leer	8000
+00:01:24:000	leer	1500
+
+

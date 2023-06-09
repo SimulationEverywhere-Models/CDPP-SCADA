@@ -1,0 +1,56 @@
+#------------------------------------------------------
+# Modelo PDB
+#
+#
+# Mensajes: 
+#      TTEV en ws_in 
+#      TTV en ws_out
+#      TTEVOO en red_in
+#      TTVDD en red_out
+#      0/1 en reload_pdb 
+#      ddAAVV en drv_respuesta
+#      ddAA en drv_pedido
+#
+# donde
+#      OO: origen
+#      DD: destino
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      dd: dispositivo
+#      AA: direccion
+#      VV/V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                   5=PRI_MASTER, 6=PRI_SLAVE,
+#                   7=SEC_MASTER, 8=SEC_SLAVE)
+#
+# El test es casi identico al de la base de datos, solo que
+# en lugar de tener un port "leer", ahora tengo dos ports,
+# "ws_in" y "red_in". Este ultimo envia pedidos con alguna
+# información de red, que no se toca y se devuelve en la
+# respuesta
+#
+00:00:11:000	ws_in		8100
+00:00:12:000	red_in	820077
+00:00:13:000	ws_in 	8000
+00:00:14:000	red_in	150077
+00:00:15:000	ws_in		1517
+#
+# un tag inexistente
+00:00:16:000	ws_in		3400
+#
+# leo el valor de un tag que escribí
+00:00:17:000	ws_in		1518
+#
+# pido que se cargue la DB_SLAVE y tiro un pedido que
+# tendra respuesta alrededor de 10 seg despues, cuando
+# haya terminado de recargar la base de datos
+00:00:20:000	reload_pdb 	1
+00:00:20:200	ws_in		1500
+00:00:41:000	ws_in		1500
+#
+# terminada la recarga, repito el test
+# Notar que ya no tengo el viejo valor del tag 15
+00:00:42:000	ws_in		8100
+00:00:43:000	red_in 	820077
+00:00:44:000	ws_in		8000
+00:00:45:000	red_in	150077
+

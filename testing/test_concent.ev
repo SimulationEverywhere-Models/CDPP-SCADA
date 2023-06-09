@@ -1,0 +1,33 @@
+#------------------------------------------------------
+# Modelo Concentrador
+#
+#
+# Mensajes: 
+#      MM..MOO en in1 
+#      MM..MDD en in2 
+#      MM..M en in/in2/out2
+# donde
+#      MM..M: mensaje
+#      DD, OO: es numero de nodo + numero de modulo
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#
+00:00:01:000	in1	100011
+00:00:02:000	in1	200021
+00:00:03:000	in2	3000
+00:00:04:000	in2	4000
+#
+# este mensaje simula ser la respuesta al mensaje "1000"
+# de in2... debe salir por out1
+#
+00:00:04:200	in	4444
+00:00:05:000	in1	500021
+#
+# este mensaje simula ser la respuesta al mensaje "2000"
+# de in1... debe salir por out1 como "333321"
+#
+00:00:05:200    in      3333
+#
+# este mensaje simula ser la respuesta al mensaje "3000"
+# de in1... debe salir por out1 como "5555"
+#
+00:00:06:000	in	5555

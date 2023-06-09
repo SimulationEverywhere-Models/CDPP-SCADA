@@ -1,0 +1,34 @@
+#------------------------------------------------------
+# Modelo Red
+#
+#
+# Mensajes: 
+#      MM..MDDOO en eth_in/out 
+#      MM..MOO en pdb_out/ws_out
+#      MM..MDD en pdb_in/ws_in
+#      NR en nombre_logico
+# donde
+#      MM..M: mensaje
+#      DD, OO: es numero de nodo + numero de modulo
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#
+# un mensaje para el WS de nodo 2 de la PDB del nodo 1
+00:00:01:000		eth_in	5552112
+# un mensaje para la PDB de nodo 2 del WS del nodo 1
+00:00:02:000		eth_in	5552211
+# un mensaje para la AUX de nodo 2 del PDB del nodo 1
+00:00:03:000		eth_in	5552312
+# un mensaje para el PDB de nodo 1 de mi WS
+00:00:04:000		ws_in		555512
+# un mensaje para la WS de nodo 3 de mi PDB
+00:00:05:000		pdb_in	555531
+# un mensaje para la PDB de nodo 5 de mi AUX
+00:00:06:000		aux_in	888852
+# hago un cambio al nombre logico 5 (inicialmente 
+# apunta al primario) y repito el mensaje
+00:00:07:000		nombre_logico 52
+00:00:08:000		aux_in	888852
+# un mensaje invalido (no existe el nodo 7)
+00:00:09:000		aux_in	555572

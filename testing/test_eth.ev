@@ -1,0 +1,22 @@
+#------------------------------------------------------
+# Modelo Ethernet
+#
+#
+# Mensajes: 
+#      MM..MDDOO en inx/outx
+#      N en inh/hab 
+# donde
+#      MM..M: mensaje
+#      N: un numero de nodo
+#      DD, OO: es numero de nodo + numero de modulo
+#      Modulo: 1=WS, 2=PDB, 3=HS
+00:00:01:000		in1	102111
+00:00:02:000		in2	202312
+#
+# el siguiente pisa al anterior por llegar muy rapido
+#
+00:00:02:005		in2	303321
+00:00:03:000		inh	1
+00:00:04:000		in1	402111
+00:00:05:000		in2	501321
+00:00:06:000		in2	15182223

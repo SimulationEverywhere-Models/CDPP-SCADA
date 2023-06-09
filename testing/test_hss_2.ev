@@ -1,0 +1,46 @@
+#------------------------------------------------------
+# Modelo HSServer
+# Test 2: Nodo Secundario
+#
+# Mensajes:
+#      _ en start, stop, failover_master, failover_slave
+#      _ en start_drv, stop_drv
+#      0/1 en reload_pdb (0=DB_MASTER, 1=DB_SLAVE)
+#      TTVOO en red_in
+#      TTEVDD en red_out
+#      NR en nombre_logico
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE,
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#      OO: origen
+#      DD: destino
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#
+00:00:01:000	start 1
+# Dejo pasar suficiente tiempo para que el modelo agote reintentos
+# y switchee a Master (SEC_MASTER)
+#
+# Envio algunas respuestas validas de poleo
+00:01:00:000	red_in	15612
+00:01:05:000	red_in	15612
+00:01:10:000	red_in	15612
+00:01:15:000	red_in	15612
+#
+# Mando dos pedidos de failover (responde solo al segundo)
+00:01:17:000	failover_master	1
+00:01:18:000	failover_slave	1
+#
+# Otra vez polea al master. Luego de los reintentos maximos,
+# simulo que la maquina primaria se puso en master... debe
+# switchear a slave
+00:02:30:000	red_in	15512
+00:02:35:000	red_in	15512
+00:02:40:000	red_in	15512
+00:02:45:000	red_in	15512
+00:02:50:000	red_in	15512
+00:03:30:000	stop 1

@@ -1,0 +1,51 @@
+#------------------------------------------------------
+# Modelo PDB-Red-Eth
+#
+#
+# Simulo ser el nodo 1 (primario de 5) conectado a la
+# boca 1 del switch de red. Ademas, los nodos 2 y 3 estan
+# en las bocas 2 y 3 del switch
+#
+# Mensajes: 
+#      TTEVDDOO en in2/out2/in3/out3 
+#      0/1 en reload_pdb (0=DB_MASTER, 1=DB_SLAVE)
+#      NR en nombre_logico
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#      DD, OO: destino / origen
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#
+# Todos los mensajes los manda el nodo 2/3 desde su WS
+#
+00:00:31:000	in2		81001221
+00:00:32:000	in2		82001221
+00:00:33:000	in3		80001231
+00:00:34:000	in2		15001221
+00:00:35:000	in3		15191231
+#
+# un tag inexistente
+00:00:36:000	in3		34001231
+#
+# leo el valor de un tag que escribí
+00:00:37:000	in2		15191221
+#
+# pido que se cargue la DB_SLAVE y tiro un par de pedidos
+# que no tendran respuesta
+00:00:40:000	reload_pdb 	1
+00:00:40:200	in2		15001221
+00:00:51:000	in2		15001221
+#
+# terminada la recarga, repito el test
+# Notar que ya no tengo el viejo valor del tag 15
+00:00:52:000	in2		81001221
+00:00:53:000	in2		82001221
+00:00:54:000	in3		80001231
+00:00:55:000	in2		15001221
+
+

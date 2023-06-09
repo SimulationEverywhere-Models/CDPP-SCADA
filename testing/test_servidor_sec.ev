@@ -1,0 +1,30 @@
+#------------------------------------------------------
+# Modelo Servidor1
+#
+#
+# Mensajes:
+#      _ en start/stop
+#      TTVDDOO en client_in para el Workspace
+#      TTEVDDOO en client_in para la PDB (que no existe)
+#      TTEVDDOO en client_out (TT=TAG_STATUS, OO=O3)
+# donde
+#      TTEV un pedido a una pdb
+#      TTV una respuesta de una pdb
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE,
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#      DD, OO: es numero de nodo + numero de modulo
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#
+00:00:30:000	hs_start	1
+#
+# la PDB del nodo 1 dice que el nodo 2 es PRI_MASTER
+00:01:20:100	server_in	1552312
+#
+# me paso a slave, pero vuelve luego de los reintentos
+00:02:00:100	fo_slave	1
+#
+# listo!
+00:03:00:000	hs_stop		1

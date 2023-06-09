@@ -1,0 +1,23 @@
+#------------------------------------------------------
+# Modelo Driver
+#
+#
+# Mensajes:
+#      _ en start/stop
+#      DDAAVV en respuesta
+#      DDAA en pedido
+# donde
+#      DD: dispositivo
+#      AA: direccion
+#      VV: valor (=2=AVALUE)
+#
+00:00:00:001	stop 1
+00:00:01:000	pedido 1001
+00:00:02:000	pedido 1102
+00:00:02:500	start 1
+00:00:03:000	pedido 1203
+00:00:04:000	pedido 1304
+00:00:05:000	pedido 1405
+00:00:05:500	stop 1
+00:00:06:000	pedido 1506
+00:00:07:000	pedido 1607

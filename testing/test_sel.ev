@@ -1,0 +1,30 @@
+#------------------------------------------------------
+# Modelo Selector
+#
+#
+# Mensajes: 
+#      TTV en pdb_in
+#      TTVOO en red_in/pant_out
+#      NR en nombre_logico
+#      TTEV en pdb_out
+#      TTEVDD en red_out/pant_in
+# donde
+#      TT: tag
+#      V: valor
+#      OO: origen
+#      DD: destino
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#
+00:00:01:000	pant_in	770051
+00:00:02:000	pant_in	770011
+00:00:03:000	pant_in	770021
+00:00:04:000	pant_in	770031
+00:00:05:000	nombre_logico 52
+00:00:06:000	pant_in	770051
+00:00:07:000	red_in	77232
+00:00:08:000	pdb_in	772
+
+
+
+

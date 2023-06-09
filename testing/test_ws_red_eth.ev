@@ -1,0 +1,26 @@
+#------------------------------------------------------
+# Modelo Workspace-Red-Eth
+#
+# Simulo ser el nodo 1 (primario de 5) conectado a la
+# boca 1 del switch de red. Ademas, los nodos 2 y 3 estan
+# en las bocas 2 y 3 del switch
+#
+# Mensajes: 
+#      TTEVDDOO en in2/out2/in3/out3 
+#      NR en nombre_logico
+# donde
+#      TT: tag
+#      E: 1=escribir y leer, 0=solo leer
+#      V: valor (0=NAVALUE, 1=NOTAG, 2=AVALUE, 
+#                5=PRI_MASTER, 6=PRI_SLAVE,
+#                7=SEC_MASTER, 8=SEC_SLAVE)
+#      DD, OO: destino / origen
+#      Modulo: 1=WS, 2=PDB, 3=HS
+#      NR: N1 apunta el nombre log N al primario
+#          N2 apunta el nombre log N al secundario
+#
+00:00:30:000	nombre_logico	52
+
+
+
+
